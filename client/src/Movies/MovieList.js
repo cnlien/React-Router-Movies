@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom';
 
 const MovieList = props => {
   const [movies, setMovies] = useState([])
+  console.log(props);
   useEffect(() => {
     const getMovies = () => {
       axios
         .get('http://localhost:5000/api/movies')
         .then(response => {
-          console.log(response);
+          console.log(response.data);
           setMovies(response.data);
         })
         .catch(error => {
